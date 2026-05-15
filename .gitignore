@@ -1,2 +1,3 @@
 .env
 agent.py
+__pycache__

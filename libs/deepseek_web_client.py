@@ -8,7 +8,7 @@ from enum import Enum
 import requests
 from urllib3.exceptions import InsecureRequestWarning
 
-from deepseek_wasm import DeepSeekHashWasm
+from libs.deepseek_wasm import DeepSeekHashWasm
 
 # Suprimir advertencias de SSL inseguro
 warnings.filterwarnings("ignore", category=InsecureRequestWarning)
@@ -90,7 +90,7 @@ class Chat:
                 parent_id=self.last_message_id,
             ))
         
-        return response_text
+        return response_text[:-8] # -8, for some reason it always returns with "FINISHED" at the end.
 
     def get_history(self) -> List[Dict[str, str]]:
         """Retorna el historial de la conversación"""
