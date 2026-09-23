@@ -37,7 +37,7 @@ dark_print("Creating a new chat...")
 chat = client.create_chat()
 
 dark_print("Sending first context prompt...")
-ctx = open('context_prompt.txt', 'r').read()
+ctx = open('agent_context_prompt.txt', 'r').read()
 response = json.loads(chat.send(ctx))
 dark_print("Waiting for model acknowledgement for the system prompt.")
 if response.get("messages", [{}])[0].get("content") != "OK":
